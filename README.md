@@ -1,9 +1,5 @@
 # CSC150-DI-Final
 
-Here's a sample GitHub README file for your project:
-
----
-
 # 🚀 Space Mission Planner
 
 A program designed to help plan fictional space missions by calculating the optimal Hohmann transfer orbit between two planets. Using simplified Keplerian motion, the Space Mission Planner provides essential details such as travel time, orbital parameters, and a rough fuel estimate based on delta-v calculations.
