@@ -29,14 +29,14 @@ int main()
 
     const struct Planet planets[] = {
         // Orbital period in seconds
-        {"Mercury", 57910000 * 1000, 7600521.6},
-        {"Venus", 108200000 * 1000, 19413907.2},
-        {"Earth", 149600000 * 1000, 31557600.0},
-        {"Mars", 227940000 * 1000, 59355072.0},
-        {"Jupiter", 778330000 * 1000, 374335776.0},
-        {"Saturn", 1429400000 * 1000, 929596608.0},
-        {"Uranus", 2870990000 * 1000, 2651370016.0},
-        {"Neptune", 4504300000 * 1000, 5200418592.0}};
+        {"Mercury", 57910000.0 * 1000, 7600521.6},
+        {"Venus", 108200000.0 * 1000, 19413907.2},
+        {"Earth", 149600000.0 * 1000, 31557600.0},
+        {"Mars", 227940000.0 * 1000, 59355072.0},
+        {"Jupiter", 778330000.0 * 1000, 374335776.0},
+        {"Saturn", 1429400000.0 * 1000, 929596608.0},
+        {"Uranus", 2870990000.0 * 1000, 2651370016.0},
+        {"Neptune", 4504300000.0 * 1000, 5200418592.0}};
 
     // user variables
     int start_planet;
@@ -47,6 +47,13 @@ int main()
     //---------------------------------------------
     /*begin program*/
     //---------------------------------------------
+
+    //testing out variables
+    printf("Gravitational Constant: %e m/s\n", G);
+    printf("The Sun's mass: %e Kg\n", M_sun);
+    printf("Planet Name: %s\n", planets[1].name);
+    printf("Orbital Radius: %.2f m\n", planets[1].orbital_radius);
+    printf("Orbital Period: %.2f seconds\n", planets[1].orbital_period);
 
     //---------------------------------------------
     /*end program*/
