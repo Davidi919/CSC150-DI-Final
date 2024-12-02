@@ -29,6 +29,8 @@ int main()
 
     const struct Planet planets[] = {
         // Orbital period in seconds
+        // Orbital radius converts to meters
+        ////adding '.0' to raidus to avoid overflow
         {"Mercury", 57910000.0 * 1000, 7600521.6},
         {"Venus", 108200000.0 * 1000, 19413907.2},
         {"Earth", 149600000.0 * 1000, 31557600.0},
@@ -48,7 +50,7 @@ int main()
     /*begin program*/
     //---------------------------------------------
 
-    //testing out variables
+    // testing out variables
     printf("Gravitational Constant: %e m/s\n", G);
     printf("The Sun's mass: %e Kg\n", M_sun);
     printf("Planet Name: %s\n", planets[1].name);
