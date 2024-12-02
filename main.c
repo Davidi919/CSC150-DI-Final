@@ -12,21 +12,22 @@ int main()
     /*variable creation*/
     //---------------------------------------------
 
-    // Gravitation constants
+    // Gravitational constants
     const double G = 6.67430e-11;  // m^3/kg/s^2
     const double M_sun = 1.989e30; // Mass of the Sun in kg
     const double mu = G * M_sun;   // Gravitational parameter for the Sun
     const double g = 9.81;         // m/s^2
 
-    // planet variables
+    // planet reference
     struct Planet
     {
         char name[10];
-        double orbital_radius; // Average distance from the Sun in meters
-        double orbital_period; // Orbital period in seconds
+        double orbital_radius;
+        double orbital_period; 
     };
 
     const struct Planet planets[] = {
+        // Orbital period in seconds
         {"Mercury", 57910000 * 1000, 7600521.6},     // Orbital period: ~88 days
         {"Venus", 108200000 * 1000, 19413907.2},     // Orbital period: ~225 days
         {"Earth", 149600000 * 1000, 31557600.0},     // Orbital period: ~365.25 days
@@ -43,8 +44,8 @@ int main()
     double initial_mass;
     int rocket_type;
 
-    // output variables
     
+
 
     //---------------------------------------------
     /*begin program*/
