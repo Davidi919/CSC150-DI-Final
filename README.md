@@ -51,6 +51,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - Simplified orbital mechanics based on the principles of Keplerian motion.
 - Inspired by the basics of space mission planning.
 
+---
 
 ## 📚 Citations and References
 
