@@ -1,6 +1,6 @@
-# CSC150-DI-Final 🚀 Mission Planner Lite
+# CSC150-DI-Final 🚀 Mission Planner
 
-A simplified program designed to help plan fictional space missions by calculating the optimal Hohmann transfer orbit between two planets. Using predefined orbital data and basic Keplerian motion, Mission Planner Lite provides essential details such as travel time, delta-v, and fuel estimates based on user-selected spacecraft types.
+A simplified program designed to help plan theoritical space missions by calculating the optimal Hohmann transfer orbit between two planets. Using predefined orbital data and basic Keplerian motion. The user will be provided with essential details such as travel time, delta-v, and fuel estimates based on user-selected rocket types.
 
 ---
 
@@ -50,3 +50,12 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - Simplified orbital mechanics based on the principles of Keplerian motion.
 - Inspired by the basics of space mission planning.
+
+
+## 📚 Citations and References
+
+- [NASA: Orbits and Kepler's Laws](https://science.nasa.gov/solar-system/orbits-and-keplers-laws/)
+- [NASA: Basics of Space Flight - Chapter 4.1](https://science.nasa.gov/learn/basics-of-space-flight/chapter4-1/)
+- [Orbital Mechanics: Hohmann Transfer](https://orbital-mechanics.space/orbital-maneuvers/hohmann-transfer.html)
+- [NASA Glenn Research Center: Ideal Rocket Equation](https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/ideal-rocket-equation/)
+
