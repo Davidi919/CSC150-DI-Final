@@ -6,10 +6,8 @@
 #include <string.h>
 #include <math.h>
 
-int main()
-{
     //---------------------------------------------
-    /*variable creation*/
+    /*global variable creation*/
     //---------------------------------------------
 
     // Gravitational constants
@@ -21,7 +19,7 @@ int main()
     // planet reference
     struct Planet
     {
-        char name[10];
+        char name[20];
         double orbital_radius;
         double orbital_period;
         double orbital_period_days;
@@ -34,13 +32,17 @@ int main()
         {"Mercury", 57900000000.0, 7603200.0},
         {"Venus", 108200000000.0, 19414080.0},
         {"Earth", 149600000000.0, 31553280.0},
-        {"Earth's Moon", 384000000.0, 2358720.0},
+        {"Our Moon", 384000000.0, 2358720.0},
         {"Mars", 228000000000.0, 59356800.0},
         {"Jupiter", 778500000000.0, 374198400.0},
         {"Saturn", 1432000000000.0, 928540800.0},
         {"Uranus", 2867000000000.0, 2642889600.0},
         {"Neptune", 4515000000000.0, 5166720000.0},
         {"Pluto", 5906400000000.0, 7824384000.0}};
+
+int main()
+{
+    
 
     // user variables
     int start_planet;
@@ -53,11 +55,12 @@ int main()
     //---------------------------------------------
 
     // testing out variables
-    printf("Gravitational Constant: %e m/s\n", G);
-    printf("The Sun's mass: %e Kg\n", M_sun);
-    printf("Planet Name: %s\n", planets[1].name);
-    printf("Orbital Radius: %.2f m\n", planets[1].orbital_radius);
-    printf("Orbital Period: %.2f seconds\n", planets[1].orbital_period);
+    printf("\n--------------------------------------------\n\n");
+    printf("Gravitational Constant: %e m/s\n\n", G);
+    printf("The Sun's mass: %e Kg\n\n", M_sun);
+    printf("Planet Name: %s\n\n", planets[3].name);
+    printf("Orbital Radius: %.2f m\n\n", planets[3].orbital_radius);
+    printf("Orbital Period: %.2f seconds\n\n", planets[3].orbital_period);
 
     //---------------------------------------------
     /*end program*/
