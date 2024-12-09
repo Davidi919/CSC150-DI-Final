@@ -29,27 +29,27 @@ const struct Planet planets[] = {
     // Orbital period in seconds
     // Orbital radius inn meters
     ////adding '.0' to raidus to avoid overflow
-    {"Mercury", 57900000000.0, 7603200.0},
-    {"Venus", 108200000000.0, 19414080.0},
+    {"Mercury\0", 57900000000.0, 7603200.0},
+    {"Venus\0", 108200000000.0, 19414080.0},
     //{"Earth", 149600000000.0, 31553280.0},
-    {"Our Moon", 384000000.0, 2358720.0},
-    {"Mars", 228000000000.0, 59356800.0},
-    {"Jupiter", 778500000000.0, 374198400.0},
-    {"Saturn", 1432000000000.0, 928540800.0},
-    {"Uranus", 2867000000000.0, 2642889600.0},
-    {"Neptune", 4515000000000.0, 5166720000.0},
-    {"Pluto", 5906400000000.0, 7824384000.0}};
+    {"Our Moon\0", 384000000.0, 2358720.0},
+    {"Mars\0", 228000000000.0, 59356800.0},
+    {"Jupiter\0", 778500000000.0, 374198400.0},
+    {"Saturn\0", 1432000000000.0, 928540800.0},
+    {"Uranus\0", 2867000000000.0, 2642889600.0},
+    {"Neptune\0", 4515000000000.0, 5166720000.0},
+    {"Pluto\0", 5906400000000.0, 7824384000.0}};
 
 // rocket type variables
 typedef struct
 {
-    const char type[20];  // Rocket type
+    const char type[30];  // Rocket type
     int specific_impulse; // Specific impulse in seconds
 } Rocket;
 Rocket rockets[] = {
-    {"Solid Rocket Booster", 250},
-    {"Liquid-Fueled Rocket", 350},
-    {"Ion Thruster", 3000}};
+    {"Solid Rocket Booster\0", 250},
+    {"Liquid-Fueled Rocket\0", 350},
+    {"Ion Thruster\0", 3000}};
 
 //---------------------------------------------
 /*begin main*/
@@ -61,7 +61,7 @@ int main()
     // user variables
     int destination_planet;
     double initial_mass;
-    // int rocket_type;
+    int rocket_type;
 
     //---------------------------------------------
     /*variable and struct testing*/
@@ -101,17 +101,43 @@ int main()
     printf("9. Pluto \n\n");
     printf("Select a planet 1 - 9: ");
     scanf("%d", &destination_planet);
-    printf("\n--------------------------------------------\n");
-    //printf("\nYou entered: %d\n", destination_planet);
+
+    // printf("\nYou entered: %d\n", destination_planet);
+    if (destination_planet > 9 || destination_planet < 1)
+    {
+        printf("\n--------------------------------------------\n");
+        printf("ERROR, that's not a planet within our solar system, please enter a number from the list above.\n");
+        printf("\n--------------------------------------------\n");
+        printf("Select a planet 1 - 9: ");
+        scanf("%d", &destination_planet);
+    }
+    
     destination_planet = destination_planet - 1;
+    printf("\n--------------------------------------------\n");
     printf("Your destination planet is: %s", planets[destination_planet].name);
     printf("\n--------------------------------------------\n\n");
+    
 
-    printf("Now, please select your rocket type for this mission: (1 - 3):\n");
-    printf("1. Solid Rocket Booster: 250 seconds\n 2. Liquid-Fueled Rocket: 350 seconds\n 3. Ion Thruster: 3000 seconds\n");
 
-        //---------------------------------------------
-        /*end program*/
-        //---------------------------------------------
-        return 0;
+    printf("Now, please select your rocket type for this mission: (1 - 3):\n\n");
+    printf("1. Solid Rocket Booster: 250 seconds\n2. Liquid-Fueled Rocket: 350 seconds\n3. Ion Thruster: 3000 seconds\n");
+    scanf("%d", &rocket_type);
+    if (rocket_type > 3 || rocket_type < 1)
+    {
+        printf("\n--------------------------------------------\n");
+        printf("ERROR, that's not a supported rocket type at the moment, please select from the list above.\n");
+        printf("\n--------------------------------------------\n");
+        printf("Select a rocket type 1 - 3: ");
+        scanf("%d", &rocket_type);
+    }
+    rocket_type = rocket_type - 1;
+    printf("\n--------------------------------------------\n");
+    printf("You're rocket type is: %s", rockets[rocket_type].type);
+    printf("\n--------------------------------------------\n\n");
+    
+
+    //---------------------------------------------
+    /*end program*/
+    //---------------------------------------------
+    return 0;
 }
