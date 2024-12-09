@@ -60,13 +60,20 @@ Rocket rockets[] = {
 /*Functions*/
 //---------------------------------------------
 // fuel fraction calculator
-/* CSC-150 Functions
+/* 
 
-Transfer time
++--------------------------------------------------+
+|                 🚀 MISSION REPORT                |
++--------------------------------------------------+
+| Destination Planet: Pluto                        |
+| Rocket Type       : Liquid-Fueled Rocket         |
++--------------------------------------------------+
+| Transfer Time     : 3468.25 days (~9.5 years)    |
+| Fuel Usage        : 91.23% of initial mass       |
++--------------------------------------------------+
+|                 🌌 Have a safe trip! 🚀          |
++--------------------------------------------------+
 
-Double pi
-
-Double T_transfer = M_PI * sqrt( ((r1+r2)/2)^3) / mu )
 
  */
 
@@ -181,10 +188,42 @@ int main()
     printf("\n--------------------------------------------\n\n");
 
     //---------------------------------------------
-    /*Begin Calculations*/
+    /*call and print functions*/
     //---------------------------------------------
+
     printf("Transfer time: %.2f days\n", transferTime(planets[destination_planet].orbital_radius));
     printf("Fuel fraction used: %.2f%%\n", fuelFraction(planets[destination_planet].orbital_radius) * 100);
+    printf("\n--------------------------------------------------\n");
+    printf("               🚀 MISSION REPORT                    \n");
+    printf("--------------------------------------------------\n");
+    printf("Destination Planet: %s\n", planets[destination_planet].name);
+    printf("Rocket Type       : %s\n", rockets[rocket_type].type);
+    printf("--------------------------------------------------\n");
+    printf("Transfer Time     : %f\n", transferTime(planets[destination_planet].orbital_radius));
+    printf("Fuel Usage        : %.2f%%\n", fuelFraction(planets[destination_planet].orbital_radius) * 100);
+    printf("--------------------------------------------------\n");
+    printf("                 Have a safe trip!                \n");
+    printf("--------------------------------------------------\n");
+
+/* 
+
++--------------------------------------------------+
+|                 🚀 MISSION REPORT                |
++--------------------------------------------------+
+| Destination Planet: Pluto                        |
+| Rocket Type       : Liquid-Fueled Rocket         |
++--------------------------------------------------+
+| Transfer Time     : 3468.25 days (~9.5 years)    |
+| Fuel Usage        : 91.23% of initial mass       |
++--------------------------------------------------+
+|                 🌌 Have a safe trip! 🚀          |
++--------------------------------------------------+
+
+
+ */
+
+
+
 
     //---------------------------------------------
     /*end program*/
