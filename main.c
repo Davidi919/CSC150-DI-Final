@@ -11,11 +11,13 @@
 //---------------------------------------------
 
 // Gravitational constants
-const double G = 6.67430e-11;  // m^3/kg/s^2
-const double M_sun = 1.989e30; // Mass of the Sun in kg
-const double mu = G * M_sun;   // Gravitational parameter for the Sun
-const double g = 9.81;         // m/s^2
-const float e = 2.71828;       // Euler's number
+const double G = 6.67430e-11;     // m^3/kg/s^2
+const double M_sun = 1.989e30;    // Mass of the Sun in kg
+const double mu = G * M_sun;      // Gravitational parameter for the Sun
+const double g = 9.81;            // m/s^2
+const float e = 2.71828;          // Euler's number
+const double r1 = 149600000000.0; // Earth's orbital radius in meters
+
 // user variables
 int rocket_type;
 
@@ -60,15 +62,19 @@ Rocket rockets[] = {
 // fuel fraction calculator
 /* CSC-150 Functions
 
+Transfer time
 
+Double pi
+
+Double T_transfer = M_PI * sqrt( ((r1+r2)/2)^3) / mu )
 
  */
 
 // Fuel fraction calculation
-double fuelFraction(double r1, double r2)
+double fuelFraction(double r2)
 {
     // exhaust velocity
-    double Ve = rockets[rocket_type].specific_impulse * mu;
+    double Ve = rockets[rocket_type].specific_impulse * g;
     // total delta v
     double V_1 = sqrt(mu / r1);
     double V_2 = sqrt(mu / r2);
@@ -77,12 +83,21 @@ double fuelFraction(double r1, double r2)
     double DeltaV1 = fabs(V_T1 - V_1);
     double DeltaV2 = fabs(V_T2 - V_2);
     double totalDeltaV = DeltaV1 + DeltaV2;
-    //fuel fraction
+    // fuel fraction
     double fuelFraction = 1 - pow(e, -totalDeltaV / Ve);
     return fuelFraction;
 }
 
-//
+// transfer time
+double transferTime(double r2)
+{
+    // Semi-major axis calculation
+    double semi_major_axis = (r1 + r2) / 2.0;
+    double transfer_time_seconds = M_PI * sqrt(pow(semi_major_axis, 3.0) / mu);
+    // Convert seconds to days
+    double transfer_time_days = transfer_time_seconds / 86400.0;
+    return transfer_time_days;
+}
 
 //---------------------------------------------
 /*begin main*/
@@ -168,6 +183,8 @@ int main()
     //---------------------------------------------
     /*Begin Calculations*/
     //---------------------------------------------
+    printf("Transfer time: %.2f days\n", transferTime(planets[destination_planet].orbital_radius));
+    printf("Fuel fraction used: %.2f%%\n", fuelFraction(planets[destination_planet].orbital_radius) * 100);
 
     //---------------------------------------------
     /*end program*/
