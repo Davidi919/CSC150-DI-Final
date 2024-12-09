@@ -1,42 +1,48 @@
 # CSC150-DI-Final 🚀 Mission Planner
 
-A simplified program designed to help plan theoritical space missions by calculating the optimal Hohmann transfer orbit between two planets. Using predefined orbital data and basic Keplerian motion. The user will be provided with essential details such as travel time, delta-v, and fuel estimates based on user-selected rocket types.
+A simplified program designed to help plan theoretical space missions by providing approximate mission parameters for journeys from Earth to other planets in our solar system. Using predefined orbital data and simplified calculations, the user is provided with essential details such as launch windows, travel times, and fuel requirements based on the selected rocket type.
 
 ---
 
 ## 🌌 Features
 
-- **Planet Selection**: Choose a starting and destination planet from a predefined list (e.g., Earth, Mars, Venus).
-- **Rocket Type Selection**: Select a rocket type (Solid Rocket Booster, Liquid-Fueled Rocket, or Ion Thruster) to customize fuel efficiency calculations.
-- **Hohmann Transfer Calculations**: Automatically compute the most efficient transfer orbit between two planets.
-- **Delta-v Calculation**: Calculate the total velocity change required for the mission.
-- **Fuel Estimation**: Provide a rough estimate of the remaining spacecraft mass after the burn, based on the selected rocket type and initial spacecraft mass.
+- **Destination Planet Selection**: Choose a destination planet from a predefined list (e.g., Mars, Jupiter, Saturn).
+- **Rocket Type Selection**: Select a rocket type to customize fuel efficiency calculations:
+  - Solid Rocket Booster
+  - Liquid-Fueled Rocket
+  - Ion Thruster
+- **Simplified Mission Calculations**: Provides approximate mission parameters using predefined data and simplified equations.
+- **Fuel Estimation**: Provide a rough estimate of the fuel required for the mission, based on the selected rocket type.
 - **Mission Summary**: Present mission details, including:
+  - Launch time
   - Travel time
-  - Delta-v requirements
-  - Fuel estimates
+  - Fuel required
 
 ---
 
 ## 🛠️ How It Works
 
 1. **Input**:
-   - Select the starting planet.
-   - Select the destination planet.
-   - Enter the initial spacecraft mass.
-   - Choose the rocket type from three options (Solid Rocket Booster, Liquid-Fueled Rocket, Ion Thruster).
+   - Select the destination planet (origin is always Earth).
+   - Choose the rocket type from three options:
+     - Solid Rocket Booster
+     - Liquid-Fueled Rocket
+     - Ion Thruster
 
 2. **Processing**:
-   - Use predefined orbital data for selected planets.
-   - Compute the Hohmann transfer trajectory and delta-v requirements.
-   - Estimate remaining spacecraft mass after fuel burn using the Tsiolkovsky Rocket Equation.
+   - Use predefined orbital data for the selected destination planet, including approximate delta-v and transfer time.
+   - Utilize predefined rocket specifications, each with a specific impulse:
+     - **Solid Rocket Booster**: 250 seconds
+     - **Liquid-Fueled Rocket**: 350 seconds
+     - **Ion Thruster**: 3000 seconds
+   - Calculate the exhaust velocity.
+   - Estimate the fuel required using the simplified Tsiolkovsky Rocket Equation
 
 3. **Output**:
    - Display mission details:
-     - Travel time (in days)
-     - Total delta-v (in m/s)
-     - Initial and remaining spacecraft mass after burn
-     - Selected rocket type and its efficiency
+     - **Travel Time**: Approximate duration of the journey in days.
+     - **Fuel Required**: Estimated fuel needed as a percentage of the initial spacecraft mass.
+     - **Selected Rocket Type**: Display the rocket type and its specific impulse.
 
 ---
 
@@ -56,7 +62,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## 📚 Citations and References
 
 - [NASA: Orbits and Kepler's Laws](https://science.nasa.gov/solar-system/orbits-and-keplers-laws/)
-- [NASA: Basics of Space Flight - Chapter 4.1](https://science.nasa.gov/learn/basics-of-space-flight/chapter4-1/)
-- [Orbital Mechanics: Hohmann Transfer](https://orbital-mechanics.space/orbital-maneuvers/hohmann-transfer.html)
-- [NASA Glenn Research Center: Ideal Rocket Equation](https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/ideal-rocket-equation/)
-
+- [NASA: Basics of Space Flight - Chapter 4.1](https://solarsystem.nasa.gov/basics/chapter4-1/)
+- [Hohmann Transfer Orbit](https://en.wikipedia.org/wiki/Hohmann_transfer_orbit)
+- [NASA Glenn Research Center: Ideal Rocket Equation](https://www.grc.nasa.gov/www/k-12/rocket/rktpow.html)
