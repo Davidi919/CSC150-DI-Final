@@ -172,7 +172,9 @@ int main()
     printf("\n--------------------------------------------\n\n");
 
     printf("Now, please select your rocket type for this mission: (1 - 3):\n\n");
-    printf("1. Solid Rocket Booster: 250 seconds\n2. Liquid-Fueled Rocket: 350 seconds\n3. Ion Thruster: 3000 seconds\n");
+    printf("1. Solid Rocket Booster: 250 seconds\n");
+    printf("2. Liquid-Fueled Rocket: 350 seconds\n");
+    printf("3. Ion Thruster: 3000 seconds\n");
     scanf("%d", &rocket_type);
     if (rocket_type > 3 || rocket_type < 1)
     {
@@ -186,15 +188,17 @@ int main()
     printf("\n--------------------------------------------\n");
     printf("You're rocket type is: %s", rockets[rocket_type].type);
     printf("\n--------------------------------------------\n\n");
+    printf("Calculating your Mission Report...\n");
 
     //---------------------------------------------
     /*call and print functions*/
     //---------------------------------------------
 
-    printf("Transfer time: %.2f days\n", transferTime(planets[destination_planet].orbital_radius));
-    printf("Fuel fraction used: %.2f%%\n", fuelFraction(planets[destination_planet].orbital_radius) * 100);
+    /* printf("Transfer time: %.2f days\n", transferTime(planets[destination_planet].orbital_radius));
+    printf("Fuel fraction used: %.2f%%\n", fuelFraction(planets[destination_planet].orbital_radius) * 100); */
+
     printf("\n--------------------------------------------------\n");
-    printf("               🚀 MISSION REPORT                    \n");
+    printf("               - MISSION REPORT -                  \n");
     printf("--------------------------------------------------\n");
     printf("Destination Planet: %s\n", planets[destination_planet].name);
     printf("Rocket Type       : %s\n", rockets[rocket_type].type);
@@ -203,7 +207,7 @@ int main()
     printf("Fuel Usage        : %.2f%%\n", fuelFraction(planets[destination_planet].orbital_radius) * 100);
     printf("--------------------------------------------------\n");
     printf("                 Have a safe trip!                \n");
-    printf("--------------------------------------------------\n");
+    printf("--------------------------------------------------\n\n");
 
 /* 
 
