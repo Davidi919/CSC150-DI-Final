@@ -15,6 +15,9 @@ const double G = 6.67430e-11;  // m^3/kg/s^2
 const double M_sun = 1.989e30; // Mass of the Sun in kg
 const double mu = G * M_sun;   // Gravitational parameter for the Sun
 const double g = 9.81;         // m/s^2
+const float e = 2.71828;       // Euler's number
+// user variables
+int rocket_type;
 
 // planet reference
 struct Planet
@@ -52,6 +55,36 @@ Rocket rockets[] = {
     {"Ion Thruster\0", 3000}};
 
 //---------------------------------------------
+/*Functions*/
+//---------------------------------------------
+// fuel fraction calculator
+/* CSC-150 Functions
+
+
+
+ */
+
+// Fuel fraction calculation
+double fuelFraction(double r1, double r2)
+{
+    // exhaust velocity
+    double Ve = rockets[rocket_type].specific_impulse * mu;
+    // total delta v
+    double V_1 = sqrt(mu / r1);
+    double V_2 = sqrt(mu / r2);
+    double V_T1 = sqrt(mu * (2 * r2) / (r1 * (r1 + 2)));
+    double V_T2 = sqrt(mu * (2 * r1) / (r2 * (r1 + 2)));
+    double DeltaV1 = fabs(V_T1 - V_1);
+    double DeltaV2 = fabs(V_T2 - V_2);
+    double totalDeltaV = DeltaV1 + DeltaV2;
+    //fuel fraction
+    double fuelFraction = 1 - pow(e, -totalDeltaV / Ve);
+    return fuelFraction;
+}
+
+//
+
+//---------------------------------------------
 /*begin main*/
 //---------------------------------------------
 
@@ -61,7 +94,6 @@ int main()
     // user variables
     int destination_planet;
     double initial_mass;
-    int rocket_type;
 
     //---------------------------------------------
     /*variable and struct testing*/
@@ -111,13 +143,11 @@ int main()
         printf("Select a planet 1 - 9: ");
         scanf("%d", &destination_planet);
     }
-    
+
     destination_planet = destination_planet - 1;
     printf("\n--------------------------------------------\n");
     printf("Your destination planet is: %s", planets[destination_planet].name);
     printf("\n--------------------------------------------\n\n");
-    
-
 
     printf("Now, please select your rocket type for this mission: (1 - 3):\n\n");
     printf("1. Solid Rocket Booster: 250 seconds\n2. Liquid-Fueled Rocket: 350 seconds\n3. Ion Thruster: 3000 seconds\n");
@@ -134,7 +164,10 @@ int main()
     printf("\n--------------------------------------------\n");
     printf("You're rocket type is: %s", rockets[rocket_type].type);
     printf("\n--------------------------------------------\n\n");
-    
+
+    //---------------------------------------------
+    /*Begin Calculations*/
+    //---------------------------------------------
 
     //---------------------------------------------
     /*end program*/
