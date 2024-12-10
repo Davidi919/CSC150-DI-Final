@@ -62,4 +62,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [NASA: Basics of Space Flight - Chapter 4.1](https://solarsystem.nasa.gov/basics/chapter4-1/)
 - [Hohmann Transfer Orbit](https://en.wikipedia.org/wiki/Hohmann_transfer_orbit)
 - [NASA Glenn Research Center: Ideal Rocket Equation](https://www.grc.nasa.gov/www/k-12/rocket/rktpow.html)
-- [NASA Planetary Fact Sheet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/))
+- [NASA Planetary Fact Sheet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/)
