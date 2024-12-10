@@ -98,7 +98,6 @@ int main()
 
     // user variables
     int destination_planet;
-    double initial_mass;
 
     //---------------------------------------------
     /*variable and struct testing*/
@@ -137,48 +136,47 @@ int main()
     printf("8. Neptune \n");
     printf("9. Pluto \n\n");
     printf("Select a planet 1 - 9: ");
-    scanf("%d", &destination_planet);
 
     // printf("\nYou entered: %d\n", destination_planet);
-    if (destination_planet > 9 || destination_planet < 1)
+    while (scanf("%d", &destination_planet) != 1 || destination_planet < 1 || destination_planet > 9)
     {
-        printf("\n--------------------------------------------\n");
-        printf("ERROR, that's not a planet within our solar system, please enter a number from the list above.\n");
-        printf("\n--------------------------------------------\n");
+        while (getchar() != '\n')
+            ;
+        printf("\n------------------------------------------------------\n");
+        printf("ERROR, that's not a planet within our solar \nsystem, please enter a number from the list above.\n");
+        printf("------------------------------------------------------\n");
         printf("Select a planet 1 - 9: ");
-        scanf("%d", &destination_planet);
     }
 
-    destination_planet = destination_planet - 1;
-    printf("\n--------------------------------------------\n");
+    destination_planet = destination_planet - 1; // changing to 0 index
+
+    printf("\n------------------------------------------------------\n");
     printf("Your destination planet is: %s", planets[destination_planet].name);
-    printf("\n--------------------------------------------\n\n");
+    printf("\n------------------------------------------------------\n");
 
     printf("Now, please select your rocket type for this mission: (1 - 3):\n\n");
     printf("1. Solid Rocket Booster: 250 seconds\n");
     printf("2. Liquid-Fueled Rocket: 350 seconds\n");
     printf("3. Ion Thruster: 3000 seconds\n");
-    scanf("%d", &rocket_type);
-    if (rocket_type > 3 || rocket_type < 1)
+
+    while (scanf("%d", &rocket_type) != 1 || rocket_type < 1 || rocket_type > 3)
     {
-        printf("\n--------------------------------------------\n");
-        printf("ERROR, that's not a supported rocket type at the moment, please select from the list above.\n");
-        printf("\n--------------------------------------------\n");
+        while (getchar() != '\n')
+
+        printf("\n------------------------------------------------------\n");
+        printf("ERROR, that's not a supported rocket type at the\nmoment, please select from the list above.\n");
+        printf("------------------------------------------------------\n");
         printf("Select a rocket type 1 - 3: ");
-        scanf("%d", &rocket_type);
     }
     rocket_type = rocket_type - 1;
-    printf("\n--------------------------------------------\n");
+    printf("\n------------------------------------------------------\n");
     printf("You're rocket type is: %s", rockets[rocket_type].type);
-    printf("\n--------------------------------------------\n\n");
+    printf("\n------------------------------------------------------\n");
     printf("Calculating your Mission Report...\n");
 
     //---------------------------------------------
     /*call and print functions*/
     //---------------------------------------------
-
-    /* printf("Transfer time: %.2f days\n", transferTime(planets[destination_planet].orbital_radius));
-    printf("Fuel fraction used: %.2f%%\n", fuelFraction(planets[destination_planet].orbital_radius) * 100); */
 
     printf("\n--------------------------------------------------\n");
     printf("               - MISSION REPORT -                  \n");
@@ -186,14 +184,11 @@ int main()
     printf("Destination Planet: %s\n", planets[destination_planet].name);
     printf("Rocket Type       : %s\n", rockets[rocket_type].type);
     printf("--------------------------------------------------\n");
-    printf("Transfer Time     : %f\n", transferTime(planets[destination_planet].orbital_radius));
-    printf("Fuel Usage        : %.2f%%\n", fuelFraction(planets[destination_planet].orbital_radius) * 100);
+    printf("Transfer Time     : %.2f days\n", transferTime(planets[destination_planet].orbital_radius));
+    printf("Fuel Usage        : %.2f%% of ship's mass\n", fuelFraction(planets[destination_planet].orbital_radius) * 100);
     printf("--------------------------------------------------\n");
     printf("                 Have a safe trip!                \n");
     printf("--------------------------------------------------\n\n");
-
-
-
 
     //---------------------------------------------
     /*end program*/
