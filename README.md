@@ -1,48 +1,45 @@
 # CSC150-DI-Final 🚀 Mission Planner
 
-A simplified program designed to help plan theoretical space missions by providing approximate mission parameters for journeys from Earth to other planets in our solar system. Using predefined orbital data and simplified calculations, the user is provided with essential details such as launch windows, travel times, and fuel requirements based on the selected rocket type.
+A program designed to help plan theoretical space missions by providing mission parameters for journeys from Earth to other planets in our solar system. Using simplified Keplerian mechanics and the Tsiolkovsky Rocket Equation, the program calculates travel times and fuel requirements for different rocket types and destinations.
 
 ---
 
 ## 🌌 Features
 
-- **Destination Planet Selection**: Choose a destination planet from a predefined list (e.g., Mars, Jupiter, Saturn).
-- **Rocket Type Selection**: Select a rocket type to customize fuel efficiency calculations:
-  - Solid Rocket Booster
-  - Liquid-Fueled Rocket
-  - Ion Thruster
-- **Simplified Mission Calculations**: Provides approximate mission parameters using predefined data and simplified equations.
-- **Fuel Estimation**: Provide a rough estimate of the fuel required for the mission, based on the selected rocket type.
-- **Mission Summary**: Present mission details, including:
-  - Launch time
+- **Destination Planet Selection**: Choose a destination planet from a predefined list (e.g., Mercury, Mars, Jupiter, Pluto).
+- **Rocket Type Selection**: Select one of three rocket types, each with a specific impulse, which influences fuel efficiency:
+  - **Solid Rocket Booster**: 250 seconds
+  - **Liquid-Fueled Rocket**: 350 seconds
+  - **Ion Thruster**: 3000 seconds
+- **Travel Time Calculation**: Compute the approximate time (in days and years) for a Hohmann transfer orbit between Earth and the selected planet.
+- **Fuel Requirement Estimation**: Use the simplified Tsiolkovsky Rocket Equation to estimate the fuel fraction required for the mission.
+- **Mission Summary**: Display mission details in a user-friendly and creative format, including:
   - Travel time
-  - Fuel required
+  - Fuel usage
+  - Selected rocket type and destination
 
 ---
 
 ## 🛠️ How It Works
 
-1. **Input**:
-   - Select the destination planet (origin is always Earth).
-   - Choose the rocket type from three options:
-     - Solid Rocket Booster
-     - Liquid-Fueled Rocket
-     - Ion Thruster
+1. **User Input**:
+   - Select a destination planet from the predefined list of planets in the solar system (origin is always Earth).
+   - Choose a rocket type from the three options provided.
 
 2. **Processing**:
-   - Use predefined orbital data for the selected destination planet, including approximate delta-v and transfer time.
-   - Utilize predefined rocket specifications, each with a specific impulse:
-     - **Solid Rocket Booster**: 250 seconds
-     - **Liquid-Fueled Rocket**: 350 seconds
-     - **Ion Thruster**: 3000 seconds
-   - Calculate the exhaust velocity.
-   - Estimate the fuel required using the simplified Tsiolkovsky Rocket Equation
+   - **Travel Time**:
+     - Compute the travel time using Keplerian mechanics and the semi-major axis of the Hohmann transfer orbit.
+   - **Fuel Requirement**:
+     - Calculate the delta-v for the transfer orbit.
+     - Compute the fuel fraction using the Tsiolkovsky Rocket Equation, which depends on the rocket's exhaust velocity.
 
 3. **Output**:
-   - Display mission details:
-     - **Travel Time**: Approximate duration of the journey in days.
-     - **Fuel Required**: Estimated fuel needed as a percentage of the initial spacecraft mass.
-     - **Selected Rocket Type**: Display the rocket type and its specific impulse.
+   - Generate a mission report with:
+     - **Destination Planet**: Name of the selected planet.
+     - **Rocket Type**: Name and specific impulse of the selected rocket.
+     - **Transfer Time**: Approximate duration of the journey in days and years.
+     - **Fuel Usage**: Percentage of the spacecraft's initial mass consumed as fuel.
+   - Output is presented in a creative, ASCII-styled mission report.
 
 ---
 
@@ -54,8 +51,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## 🌟 Acknowledgments
 
-- Simplified orbital mechanics based on the principles of Keplerian motion.
-- Inspired by the basics of space mission planning.
+- Simplified orbital mechanics inspired by Keplerian motion.
+- Fundamentals of space mission planning and the ideal rocket equation.
 
 ---
 
@@ -65,3 +62,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [NASA: Basics of Space Flight - Chapter 4.1](https://solarsystem.nasa.gov/basics/chapter4-1/)
 - [Hohmann Transfer Orbit](https://en.wikipedia.org/wiki/Hohmann_transfer_orbit)
 - [NASA Glenn Research Center: Ideal Rocket Equation](https://www.grc.nasa.gov/www/k-12/rocket/rktpow.html)
+- [NASA Planetary Fact Sheet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/))
